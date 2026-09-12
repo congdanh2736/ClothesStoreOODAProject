@@ -20,5 +20,8 @@ namespace ClothesStoreOODAProject.src.Models
         public int AddressId { get; set; }
         [ForeignKey("AddressId")]
         public Address? Address { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public PaymentTransaction PaymentTransaction { get; set; } // 1-1 relationship with PaymentTransaction
     }
 }
