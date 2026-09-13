@@ -1,0 +1,20 @@
+@page "{id:int}"
+@model ClothesStoreOODAProject.Pages.Customers.EditModel
+
+<h2>Sua Customer</h2>
+<form method="post">
+    <input type="hidden" asp-for="Customer.Id" />
+    <div>
+        <label>Ho ten</label>
+        <input asp-for="Customer.FirstName" />
+        <input asp-for="Customer.LastName" />
+    </div>
+    <div>
+        <label>Hang thanh vien</label>
+        <select asp-for="Customer.TierId" asp-items="Model.TierList">
+            <option value="">-- Chon hang --</option>
+        </select>
+    </div>
+    <button type="submit">Luu</button>
+</form>
+<a asp-page="Index">Quay lai</a>

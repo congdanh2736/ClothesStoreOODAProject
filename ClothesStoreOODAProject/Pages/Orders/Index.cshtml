@@ -1,0 +1,26 @@
+@page
+@model ClothesStoreOODAProject.Pages.Orders.IndexModel
+
+<h2>Danh sach Order</h2>
+<a asp-page="Create">+ Them moi</a>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Id</th><th>Khach hang</th><th>Dia chi giao</th><th>Khuyen mai</th><th>Tong tien</th><th>Hanh dong</th>
+    </tr>
+@foreach (var item in Model.Orders)
+{
+    <tr>
+        <td>@item.Id</td>
+        <td>@(item.Customer?.LastName ?? "-")</td>
+        <td>@(item.Address?.Street ?? "-") @(item.Address?.City ?? "-") @(item.Address?.Country ?? "-")</td>
+        <td>@(item.Promotion?.Code ?? "-")</td>
+        <td>@item.TotalAmount</td>
+        <td>
+            <a asp-page="Details" asp-route-id="@item.Id">Chi tiet</a> |
+            <a asp-page="Edit" asp-route-id="@item.Id">Sua</a> |
+            <a asp-page="Delete" asp-route-id="@item.Id">Xoa</a>
+        </td>
+    </tr>
+}
+</table>

@@ -1,0 +1,24 @@
+@page
+@model ClothesStoreOODAProject.Pages.Customers.IndexModel
+
+<h2>Danh sach Customer</h2>
+<a asp-page="Create">+ Them moi</a>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Id</th><th>Ho ten</th><th>Hang thanh vien</th><th>Hanh dong</th>
+    </tr>
+@foreach (var item in Model.Customers)
+{
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.FirstName @item.LastName</td>
+        <td>@(item.MembershipTier?.TierName ?? "-")</td>
+        <td>
+            <a asp-page="Details" asp-route-id="@item.Id">Chi tiet</a> |
+            <a asp-page="Edit" asp-route-id="@item.Id">Sua</a> |
+            <a asp-page="Delete" asp-route-id="@item.Id">Xoa</a>
+        </td>
+    </tr>
+}
+</table>

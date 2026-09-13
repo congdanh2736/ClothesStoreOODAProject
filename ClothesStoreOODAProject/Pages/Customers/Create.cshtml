@@ -1,0 +1,18 @@
+@page
+@model ClothesStoreOODAProject.Pages.Customers.CreateModel
+
+<h2>Them Customer</h2>
+<form method="post">
+    <div>
+        <label>Ho ten</label>
+        <input asp-for="Customer.LastName" />
+    </div>
+    <div>
+        <label>Hang thanh vien</label>
+        <select asp-for="Customer.TierId" asp-items="Model.TierList">
+            <option value="">-- Chon hang --</option>
+        </select>
+    </div>
+    <button type="submit">Luu</button>
+</form>
+<a asp-page="Index">Quay lai</a>

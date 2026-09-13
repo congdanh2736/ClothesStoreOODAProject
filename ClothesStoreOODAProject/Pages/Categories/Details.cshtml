@@ -1,0 +1,10 @@
+@page "{id:int}"
+@model ClothesStoreOODAProject.Pages.Categories.DetailsModel
+
+<h2>Chi tiet Category</h2>
+<p><b>Id:</b> @Model.Category.Id</p>
+<p><b>Ten:</b> @Model.Category.Name</p>
+<p><b>Danh muc cha:</b> @(Model.Category.Parent?.Name ?? "-")</p>
+<p><b>Danh muc con:</b> @(string.Join(", ", Model.Category.Children?.Select(c => c.Name) ?? Enumerable.Empty<string?>()))</p>
+
+<a asp-page="Index">Quay lai</a>

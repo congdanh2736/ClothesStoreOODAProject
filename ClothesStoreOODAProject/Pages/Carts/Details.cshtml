@@ -1,0 +1,20 @@
+@page "{id:int}"
+@model ClothesStoreOODAProject.Pages.Carts.DetailsModel
+
+<h2>Chi tiet Cart</h2>
+<p><b>Id:</b> @Model.Cart.Id</p>
+<p><b>Khach hang:</b> @(Model.Cart.Customer?.LastName ?? "-")</p>
+
+<h4>San pham trong gio</h4>
+<table border="1" cellpadding="5">
+    <tr><th>Variant Id</th><th>So luong</th></tr>
+@foreach (var item in Model.Cart.CartItems)
+{
+    <tr>
+        <td>@item.VariantId</td>
+        <td>@item.Quantity</td>
+    </tr>
+}
+</table>
+
+<a asp-page="Index">Quay lai</a>

@@ -1,0 +1,11 @@
+@page "{id:int}"
+@model ClothesStoreOODAProject.Pages.Customers.DetailsModel
+
+<h2>Chi tiet Customer</h2>
+<p><b>Id:</b> @Model.Customer.Id</p>
+<p><b>Ho ten:</b> @Model.Customer.FirstName @Model.Customer.LastName</p>
+<p><b>Hang thanh vien:</b> @(Model.Customer.MembershipTier?.TierName ?? "-")</p>
+<p><b>So dia chi:</b> @(Model.Customer.Addresses?.Count ?? 0)</p>
+<p><b>So don hang:</b> @(Model.Customer.Orders?.Count ?? 0)</p>
+
+<a asp-page="Index">Quay lai</a>

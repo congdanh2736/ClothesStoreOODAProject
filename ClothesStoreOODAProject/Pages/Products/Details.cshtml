@@ -1,0 +1,10 @@
+@page "{id:int}"
+@model ClothesStoreOODAProject.Pages.Products.DetailsModel
+
+<h2>Chi tiet Product</h2>
+<p><b>Id:</b> @Model.Product.Id</p>
+<p><b>Ten:</b> @Model.Product.Name</p>
+<p><b>Danh muc:</b> @(Model.Product.Category?.Name ?? "-")</p>
+<p><b>So luong variant:</b> @Model.Product.ProductVariants.Count</p>
+
+<a asp-page="Index">Quay lai</a>

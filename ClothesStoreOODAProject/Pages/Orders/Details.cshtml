@@ -1,0 +1,25 @@
+@page "{id:int}"
+@model ClothesStoreOODAProject.Pages.Orders.DetailsModel
+
+<h2>Chi tiet Order</h2>
+<p><b>Id:</b> @Model.Order.Id</p>
+<p><b>Khach hang:</b> @(Model.Order.Customer?.FirstName ?? "-") @(Model.Order.Customer?.LastName ?? "-")</p>
+<p><b>Dia chi giao:</b> @(Model.Order.Address?.Street ?? "-") @(Model.Order.Address?.City ?? "-") @(Model.Order.Address?.Country ?? "-")</p>
+<p><b>Khuyen mai:</b> @(Model.Order.Promotion?.Code ?? "Khong ap dung")</p>
+<p><b>Tong tien:</b> @Model.Order.TotalAmount</p>
+<p><b>Trang thai thanh toan:</b> @(Model.Order.PaymentTransaction?.Status ?? "Chua thanh toan")</p>
+
+<h4>Cac san pham trong don</h4>
+<table border="1" cellpadding="5">
+    <tr><th>Variant Id</th><th>So luong</th><th>Gia</th></tr>
+@foreach (var item in Model.Order.OrderItems)
+{
+    <tr>
+        <td>@item.VariantId</td>
+        <td>@item.Quantity</td>
+        <td>@item.Price</td>
+    </tr>
+}
+</table>
+
+<a asp-page="Index">Quay lai</a>

@@ -13,6 +13,6 @@ namespace ClothesStoreOODAProject.src.Models
         public Customer? Customer { get; set; }
 
         // Navigation
-        public ICollection<CartItem>? CartItems { get; set; } = new List<CartItem>();
+        public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
     }
 }
